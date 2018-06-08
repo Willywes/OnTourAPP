@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('template.base');
-});
+
+Route::get('/usuarios', function () {
+    return view('usuarios.index');
+})->name('usuarios');
+Route::get('/usuarios/crear', function () {
+    return view('usuarios.crear');
+})->name('usuarios.crear');
+
