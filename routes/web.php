@@ -12,10 +12,9 @@
 */
 
 
-Route::get('/usuarios', function () {
-    return view('usuarios.index');
-})->name('usuarios');
-Route::get('/usuarios/crear', function () {
-    return view('usuarios.crear');
-})->name('usuarios.crear');
+Route::get('/usuarios', 'UserController@index')->name('usuarios');
+
+
+
+Route::get('/usuarios/crear', 'UserController@create')->name('usuarios.crear');
 

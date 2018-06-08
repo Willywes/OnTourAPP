@@ -30,8 +30,22 @@
                     <!-- /.box-tools -->
                 </div>
                 <div class="box-body">
-                    formulario
 
+                    <form action="">
+                        <div class="form-group" id="group_error_rol">
+                            <label class="control-label" for="rol"></label>
+                            <select class="form-control"
+                                    name="rol"
+                                    id="rol">
+                                <option value="">Seleccione Rol </option>
+                                @foreach($roles as $rol)
+                                    <option value="{{ $rol->id }}">{{ strtoupper($rol->nombre) }}</option>
+                                @endforeach
+                            </select>
+                            <span id="error_rol" class="help-block"></span>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>
