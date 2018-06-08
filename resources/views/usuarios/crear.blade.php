@@ -30,7 +30,7 @@
                     <!-- /.box-tools -->
                 </div>
                 <div class="box-body">
-
+                    <h3>ejemplo</h3>
                     <form action="">
                         <div class="form-group" id="group_error_rol">
                             <label class="control-label" for="rol"></label>
