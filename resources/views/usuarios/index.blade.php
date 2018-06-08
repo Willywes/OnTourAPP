@@ -27,9 +27,6 @@
                         </a>
                     </div>
 
-                    @foreach($users as $user)
-                            <td>$user->nombre</td>
-                    @endforeach
                     <table
                             id="table"
                             data-toggle="table"

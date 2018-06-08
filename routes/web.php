@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('/', function (){
+    return view('template.base');
+})->name('usuarios');
 
 Route::get('/usuarios', 'UserController@index')->name('usuarios');
 
