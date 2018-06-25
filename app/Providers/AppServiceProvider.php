@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use GuzzleHttp\Client;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +24,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+//        $this->app->singleton('GuzzleHttp\Client', function(){
+//
+//           return $client = new Client([
+//
+//               'base_uri' => 'http://localhost:8001'
+//
+//           ]);
+//
+//        });
     }
 }

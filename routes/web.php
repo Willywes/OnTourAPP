@@ -13,11 +13,13 @@
 
 Route::get('/', function (){
     return view('template.base');
-})->name('usuarios');
+})->name('dashboard');
 
-Route::get('/usuarios', 'UserController@index')->name('usuarios');
+Route::prefix('roles')->group(function () {
+    Route::get('/', 'RolController@index')->name('roles');
+});
 
 
 
-Route::get('/usuarios/crear', 'UserController@create')->name('usuarios.crear');
+Route::resource('usuarios', 'UserController');
 
