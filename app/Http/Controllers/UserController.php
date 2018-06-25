@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Model\Rol;
 use App\Model\Usuario;
 use Illuminate\Http\Request;
 
@@ -13,6 +14,11 @@ class UserController extends Controller
     {
         $usuarios = Usuario::all();
         return view('usuarios.index',  compact('usuarios'));
+    }
+
+    public function create(){
+        $roles = Rol::all();
+        return view('usuarios.create', compact('roles'));
     }
 
 }
