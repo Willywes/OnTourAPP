@@ -12,7 +12,7 @@ class ClientRest
 
         $client = new Client([
 
-            'base_uri' => 'http://localhost:8001'
+            'base_uri' => 'http://api.ontour.tucreativa.cl'
 
         ]);
 
