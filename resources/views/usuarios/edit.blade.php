@@ -17,7 +17,7 @@
             @include('template._success')
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-12">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -71,7 +71,74 @@
                             </div>
                         </div>
 
+                    <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="alumnos3">Email</label>
+                          <input type="email" class="form-control" id="email" placeholder="Ingrese el Email">
+                        </div>
+                    </div>
 
+                    <div class="col-md-3">
+                        <div class="form-group">
+                           <label for="password" class="control-label">Contraseña</label>
+                                <div class="input-group">
+                                    <input id="password" class="form-control" placeholder="Password" >
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-primary btn-flat" type="button"
+                                                onclick="generatePassword()">
+                                            <i class="fa fa-key"></i> Generar
+                                        </button>
+                                    </div>
+                                </div>      
+                            </div>
+                     </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                          <label for="alumnos4">Nombres</label>
+                          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el Nombres">
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="alumnos5">Apellido Paterno</label>
+                          <input type="text" class="form-control" id="paterno" placeholder="Ingrese el Apellido Paterno">
+                        </div>
+                    </div>
+    
+                    <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="alumnos6">Apellido Materno</label>
+                          <input type="email" class="form-control" id="materno" placeholder="Ingrese el Apellido Materno">
+                        </div>
+                    </div>
+            
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="alumnos7">Teléfono</label>
+                          <input type="email" class="form-control" id="telefono" placeholder="Ingrese el Teléfono">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+                        <div class="form-group">
+                          <label for="alumnos8">Celular</label>
+                          <input type="int" class="form-control" id="celular" placeholder="Ingrese el Celular">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary" style="float: right;"> Guardar Usuario</button>
+                    </div>
+                </div>
 
                     </form>
                 </div>
