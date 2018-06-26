@@ -21,7 +21,7 @@
             <div class="box box-primary">
                 <div class="box-body">
                     <div id="toolbar" class="btn-group">
-                        <a href="{{ route('usuarios.create') }}" class="btn btn-success"><i
+                        <a href="{{ route('contratos.create') }}" class="btn btn-success"><i
                                     class="fa fa-plus"></i> Nuevo Usuario
                         </a>
                     </div>

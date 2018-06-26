@@ -23,6 +23,20 @@
     <!-- sidebar menu: : style can be found in sidebar.less -->
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header">MENÚ PRINCIPAL</li>
+        <li>
+            <a href="{{ route('usuarios.index') }}">
+                <i class="fa fa-users"></i> <span>Gestión de Usuarios</span>
+            </a>
+        </li>
+
+        <li>
+            <a href="{{ route('contratos.index') }}">
+                <i class="fa fa-book"></i> <span>Gestión de Contratos</span>
+            </a>
+        </li>
+
+
+
         <li class="treeview">
             <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span>

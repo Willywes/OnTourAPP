@@ -23,3 +23,5 @@ Route::prefix('roles')->group(function () {
 
 Route::resource('usuarios', 'UserController');
 
+Route::resource('contratos', 'ContratoController');
+
