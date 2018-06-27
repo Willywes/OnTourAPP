@@ -6,7 +6,7 @@
 
 @section('breadcrumb')
     <li>Gestión de Usuarios</li>
-    <li class="active">Todas los Usuarios</li>
+    <li class="active">Todos los Usuarios</li>
 @endsection
 
 @section('content')

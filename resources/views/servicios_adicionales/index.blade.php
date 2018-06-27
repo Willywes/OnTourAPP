@@ -1,12 +1,12 @@
 @extends('template.base')
 
-@section('content-title', 'Gestión de Contratos')
+@section('content-title', 'Gestión de Servicios Adicionales')
 
-@section('content-subtitle', 'Todos los Contratos')
+@section('content-subtitle', 'Todos los Servicios Adicionales')
 
 @section('breadcrumb')
-    <li>Gestión de Contratos</li>
-    <li class="active">Todos los Contratos</li>
+    <li>Gestión de Servicios Adicionales</li>
+    <li class="active">Todos los Servicios Adicionales</li>
 @endsection
 
 @section('content')
@@ -21,8 +21,8 @@
             <div class="box box-primary">
                 <div class="box-body">
                     <div id="toolbar" class="btn-group">
-                        <a href="{{ route('contratos.create') }}" class="btn btn-success"><i
-                                    class="fa fa-plus"></i> Nuevo Contrato
+                        <a href="{{ route('servicios_adicionales.create') }}" class="btn btn-success"><i
+                                    class="fa fa-plus"></i> Nuevo Servicio Adicional
                         </a>
                     </div>
 
@@ -47,39 +47,34 @@
                             <tr>
                                 {{--<th data-field="status" data-checkbox="true"></th>--}}
                                 <th data-cell-style="cellStyle" data-sortable="true">Id</th>
-                                <th data-sortable="true">Fecha</th>
-                                <th data-sortable="true">Colegio</th>
-                                <th data-sortable="true">Curso</th>
-                                <th data-sortable="true">Representante de curso</th>
-                                <th data-sortable="true">Tour</th>
-                                <th data-sortable="true">Total</th>
+                                <th data-sortable="true">Nombre</th>
+                                <th data-sortable="true">Tipo</th>
+                                <th data-sortable="true">Precio</th>
                                 <th data-cell-style="cellStyle" > </th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($contratos as $contrato)
+                            @foreach($servicios_adicionales as $servicio_adicional)
                                 <tr>
-                                    <td>{{ $contrato->id }}</td>
-                                    <td>{{ $contrato->fecha }}</td>
-                                    <td>{{ $contrato->colegio }}</td>
-                                    <td>{{ $contrato->curso->nombre }}</td>
-                                    <td>{{ $contrato->user->nombre }}</td>
-                                    <td>{{ $contrato->tour->nombre }}</td>
-                                    <td>{{ $contrato->total }}</td>
+                                    <td>{{ $servicio_adicional->id }}</td>
+                                    <td>{{ $servicio_adicional->nombre }}</td>
+                                    <td>{{ $servicio_adicional->tipo }}</td>
+                                    <td>{{ $servicio_adicional->precio }}</td>
                                     <td style="white-space: nowrap;">
-                                        <a href="{{ route('contratos.show',['contrato' => $contrato->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
+                                        <a href="{{ route('servicios_adicionales.show',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('contratos.edit',['contrato' => $contrato->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
+                                        <a href="{{ route('servicios_adicionales.edit',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('contratos.destroy',['contrato' => $contrato->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
+                                        <a href="{{ route('servicios_adicionales.destroy',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
                                             <i class="fa fa-remove"></i>
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
+
 
                         </tbody>
                     </table>

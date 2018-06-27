@@ -1,12 +1,12 @@
 @extends('template.base')
 
-@section('content-title', 'Gestión de Contratos')
+@section('content-title', 'Gestión de alumnos')
 
-@section('content-subtitle', 'Todos los Contratos')
+@section('content-subtitle', 'Todos los alumnos')
 
 @section('breadcrumb')
-    <li>Gestión de Contratos</li>
-    <li class="active">Todos los Contratos</li>
+    <li>Gestión de alumnos</li>
+    <li class="active">Todos los Alumnos</li>
 @endsection
 
 @section('content')
@@ -21,8 +21,8 @@
             <div class="box box-primary">
                 <div class="box-body">
                     <div id="toolbar" class="btn-group">
-                        <a href="{{ route('contratos.create') }}" class="btn btn-success"><i
-                                    class="fa fa-plus"></i> Nuevo Contrato
+                        <a href="{{ route('alumnos.create') }}" class="btn btn-success"><i
+                                    class="fa fa-plus"></i> Nuevo Usuario
                         </a>
                     </div>
 
@@ -47,39 +47,42 @@
                             <tr>
                                 {{--<th data-field="status" data-checkbox="true"></th>--}}
                                 <th data-cell-style="cellStyle" data-sortable="true">Id</th>
-                                <th data-sortable="true">Fecha</th>
-                                <th data-sortable="true">Colegio</th>
+                                <th data-sortable="true">Nombres</th>
+                                <th data-sortable="true">A. Paterno</th>
+                                <th data-sortable="true">A. Materno</th>
+                                <th data-sortable="true">Rut</th>
+                                <th data-sortable="true">Fecha de nacimiento</th>
                                 <th data-sortable="true">Curso</th>
-                                <th data-sortable="true">Representante de curso</th>
-                                <th data-sortable="true">Tour</th>
-                                <th data-sortable="true">Total</th>
+                                <th data-sortable="true">Apoderado</th>
                                 <th data-cell-style="cellStyle" > </th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            @foreach($contratos as $contrato)
+                            @foreach($alumnos as $alumno)
                                 <tr>
-                                    <td>{{ $contrato->id }}</td>
-                                    <td>{{ $contrato->fecha }}</td>
-                                    <td>{{ $contrato->colegio }}</td>
-                                    <td>{{ $contrato->curso->nombre }}</td>
-                                    <td>{{ $contrato->user->nombre }}</td>
-                                    <td>{{ $contrato->tour->nombre }}</td>
-                                    <td>{{ $contrato->total }}</td>
+                                    <td>{{ $alumno->id }}</td>
+                                    <td>{{ $alumno->nombres }}</td>
+                                    <td>{{ $alumno->paterno }}</td>
+                                    <td>{{ $alumno->materno }}</td>
+                                    <td>{{ $alumno->rut }}</td>
+                                    <td>{{ $alumno->fecha_nacimiento }}</td>
+                                    <td>{{ $alumno->curso->nombre }}</td>
+                                    <td>{{ $alumno->user->nombre }}</td>
                                     <td style="white-space: nowrap;">
-                                        <a href="{{ route('contratos.show',['contrato' => $contrato->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
+                                        <a href="{{ route('alumnos.show',['usuario' => $alumno->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('contratos.edit',['contrato' => $contrato->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
+                                        <a href="{{ route('alumnos.edit',['usuario' => $alumno->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('contratos.destroy',['contrato' => $contrato->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
+                                        <a href="{{ route('alumnos.destroy',['usuario' => $alumno->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
                                             <i class="fa fa-remove"></i>
                                         </a>
                                     </td>
                                 </tr>
                             @endforeach
+
 
                         </tbody>
                     </table>
