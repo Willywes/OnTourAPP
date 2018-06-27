@@ -46,7 +46,8 @@
                                            id="username"
                                            name="username"
                                            placeholder=""
-                                           value="">
+                                           value=""
+                                           required>
                                     <span id="error_username" class="help-block"></span>
                                 </div>
                             </div>
@@ -57,10 +58,11 @@
 
                             <div class="col-md-6">
                                 <div class="form-group" id="group_error_rol">
-                                    <label class="control-label" for="rol">Rol</label>
+                                    <label class="control-label" for="rol_id">Rol</label>
                                     <select class="form-control"
-                                            name="rol"
-                                            id="rol">
+                                            name="rol_id"
+                                            id="rol"
+                                            required>
                                         <option value="">Seleccione Rol </option>
                                         @foreach($roles as $rol)
                                             <option value="{{ $rol->id }}">{{ strtoupper($rol->nombre) }}</option>
@@ -75,7 +77,7 @@
                     <div class="col-md-3">
                         <div class="form-group">
                           <label for="alumnos3">Email</label>
-                          <input type="email" class="form-control" id="email" placeholder="Ingrese el Email">
+                          <input required type="email" class="form-control" id="email" name="email" placeholder="Ingrese el Email">
                         </div>
                     </div>
 
@@ -83,7 +85,7 @@
                         <div class="form-group">
                            <label for="password" class="control-label">Contraseña</label>
                                 <div class="input-group">
-                                    <input id="password" class="form-control" placeholder="Password" >
+                                    <input required id="password" name="password" class="form-control" placeholder="Password" >
                                     <div class="input-group-btn">
                                         <button class="btn btn-primary btn-flat" type="button"
                                                 onclick="generatePassword()">
@@ -98,21 +100,21 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                          <label for="alumnos4">Nombres</label>
-                          <input type="text" class="form-control" id="nombre" placeholder="Ingrese el Nombres">
+                          <label for="nombres">Nombres</label>
+                          <input required type="text" class="form-control" id="nombres" name="nombres" placeholder="Ingrese el Nombres">
                         </div>
                     </div>
                     <div class="col-md-3">
                         <div class="form-group">
-                          <label for="alumnos5">Apellido Paterno</label>
-                          <input type="text" class="form-control" id="paterno" placeholder="Ingrese el Apellido Paterno">
+                          <label for="paterno">Apellido Paterno</label>
+                          <input required type="text" class="form-control" id="paterno" name="paterno" placeholder="Ingrese el Apellido Paterno">
                         </div>
                     </div>
     
                     <div class="col-md-3">
                         <div class="form-group">
-                          <label for="alumnos6">Apellido Materno</label>
-                          <input type="email" class="form-control" id="materno" placeholder="Ingrese el Apellido Materno">
+                          <label for="materno">Apellido Materno</label>
+                          <input required type="text" class="form-control" id="materno" name="materno" placeholder="Ingrese el Apellido Materno">
                         </div>
                     </div>
             
@@ -121,22 +123,22 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div class="form-group">
-                          <label for="alumnos7">Teléfono</label>
-                          <input type="email" class="form-control" id="telefono" placeholder="Ingrese el Teléfono">
+                          <label for="telefono">Teléfono</label>
+                          <input type="number" class="form-control" id="telefono" name="telefono" placeholder="Ingrese el Teléfono">
                         </div>
                     </div>
 
                     <div class="col-md-3">
                         <div class="form-group">
-                          <label for="alumnos8">Celular</label>
-                          <input type="int" class="form-control" id="celular" placeholder="Ingrese el Celular">
+                          <label for="celular">Celular</label>
+                          <input type="number" class="form-control" id="celular" name="celular" placeholder="Ingrese el Celular">
                         </div>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button class="btn btn-primary" style="float: right;"> Guardar Usuario</button>
+                        <button type="submit" class="btn btn-primary" style="float: right;"> Guardar Usuario</button>
                     </div>
                 </div>
 

@@ -26,4 +26,11 @@ class UserController extends Controller
         return view('usuarios.edit', compact('roles'));
     }
 
+    public function store(Request $request){
+
+        return $request->all();
+
+        return Usuario::post('usuarios', $request->all());
+    }
+
 }
