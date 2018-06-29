@@ -36,7 +36,7 @@
                 </div>
                 <div class="box-body">
 
-                    <form action="{{ route('servicios_adicionales.update', ['servicio_adicional' => $servicio_adicional->id]) }}" method="POST">
+                    <form action="{{ route('servicios-adicionales.update', ['servicio_adicional' => $servicio_adicional->id]) }}" method="POST">
 
                         {{ csrf_field() }}
                         <input type="hidden" name="id" value="{{$servicio_adicional->id}}">
@@ -59,13 +59,27 @@
                         </div>
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="descripcion">Descripción</label>
-                                    <textarea class="form-control"
-                                           id="descripcion"
-                                           name="descripcion"
-                                           placeholder="Ingrese el Descripción"> 
-                                           {{ $destino->descripcion or old('descripcion') }}</textarea>
+                                <div class="form-group {{ $errors->has('precio') ? 'has-error':'' }}">
+                                    <label for="precio">Precio</label>
+                                    <input required type="text"
+                                           class="form-control"
+                                           id="precio"
+                                           name="precio"
+                                           placeholder="Ingrese el Precio "
+                                           value="{{ $servicio_adicional->precio or old('precio') }}">
+                                    {!! $errors->first('precio', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group {{ $errors->has('tipo') ? 'has-error':'' }}">
+                                    <label for="tipo">Tipo</label>
+                                    <input required type="text"
+                                           class="form-control"
+                                           id="tipo"
+                                           name="tipo"
+                                           placeholder="Ingrese el Tipo"
+                                           value="{{ $servicio_adicional->tipo or old('tipo') }}">
+                                    {!! $errors->first('tipo', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
                         </div>

@@ -16,6 +16,9 @@
         <div class="col-md-12">
             @include('template._success')
         </div>
+        <div class="col-md-12">
+            @include('template._errors')
+        </div>
 
         <div class="col-md-12">
 
@@ -32,7 +35,7 @@
                 <div class="box-body">
 
 
-                    <form action="{{ route('servicios_adicionales.store') }}" method="POST">
+                    <form action="{{ route('servicios-adicionales.store') }}" method="POST">
 
                         {{ csrf_field() }}
 

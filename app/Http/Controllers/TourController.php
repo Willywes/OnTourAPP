@@ -40,7 +40,6 @@ class TourController extends Controller
 
     public function store(Request $request){
         $response = Tour::post('tours', $request->all());
-
         if($response->status == 'error'){
             return redirect()->back()->withErrors($response->errors)->withInput();
         }else{

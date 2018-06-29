@@ -16,6 +16,9 @@
         <div class="col-md-12">
             @include('template._success')
         </div>
+        <div class="col-md-12">
+            @include('template._errors')
+        </div>
 
         <div class="col-md-12">
 

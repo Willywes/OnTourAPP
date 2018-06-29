@@ -16,8 +16,11 @@
         <div class="col-md-12">
             @include('template._success')
         </div>
-
         <div class="col-md-12">
+            @include('template._errors')
+        </div>
+
+        <div class="col-md-9">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -38,20 +41,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-6">
-                                <div class="form-group {{ $errors->has('nombre') ? 'has-error':'' }}">
-                                    <label for="nombre">Nombre</label>
-                                    <input required type="nombre"
-                                           class="form-control"
-                                           id="nombre"
-                                           name="nombre"
-                                           placeholder="Ingrese el Nombre"
-                                           value="{{ old('nombre') }}">
-                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
-                                </div>
-                            </div>
-
-                            <div class="col-md-6">
+                          <div class="col-md-6">
                                 <div class="form-group {{ $errors->has('destino_id') ? 'has-error':'' }}">
                                     <label class="control-label" for="destino_id">Destino</label>
                                     <select class="form-control"
@@ -67,6 +57,22 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="row">
+                          <div class="col-md-6">
+                                <div class="form-group {{ $errors->has('nombre') ? 'has-error':'' }}">
+                                    <label for="nombre">Nombre</label>
+                                    <input required type="nombre"
+                                           class="form-control"
+                                           id="nombre"
+                                           name="nombre"
+                                           placeholder="Ingrese el Nombre"
+                                           value="{{ old('nombre') }}">
+                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group {{ $errors->has('precio_base') ? 'has-error':'' }}">

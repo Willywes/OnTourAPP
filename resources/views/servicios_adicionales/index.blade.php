@@ -21,7 +21,7 @@
             <div class="box box-primary">
                 <div class="box-body">
                     <div id="toolbar" class="btn-group">
-                        <a href="{{ route('servicios_adicionales.create') }}" class="btn btn-success"><i
+                        <a href="{{ route('servicios-adicionales.create') }}" class="btn btn-success"><i
                                     class="fa fa-plus"></i> Nuevo Servicio Adicional
                         </a>
                     </div>
@@ -62,13 +62,13 @@
                                     <td>{{ $servicio_adicional->tipo }}</td>
                                     <td>{{ $servicio_adicional->precio }}</td>
                                     <td style="white-space: nowrap;">
-                                        <a href="{{ route('servicios_adicionales.show',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
+                                        <a href="{{ route('servicios-adicionales.show',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
                                             <i class="fa fa-eye"></i>
                                         </a>
-                                        <a href="{{ route('servicios_adicionales.edit',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
+                                        <a href="{{ route('servicios-adicionales.edit',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
                                             <i class="fa fa-edit"></i>
                                         </a>
-                                        <a href="{{ route('servicios_adicionales.destroy',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
+                                        <a href="{{ route('servicios-adicionales.destroy',['servicio_adicional' => $servicio_adicional->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
                                             <i class="fa fa-remove"></i>
                                         </a>
                                     </td>

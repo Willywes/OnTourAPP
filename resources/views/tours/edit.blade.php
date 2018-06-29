@@ -21,7 +21,7 @@
             @include('template._errors')
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-9">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -62,7 +62,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group {{ $errors->has('nombre') ? 'has-error':'' }}">
                                     <label for="nombre">Nombre</label>
                                     <input required type="nombre"
@@ -89,7 +89,7 @@
                                     {!! $errors->first('precio_base', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-6">
                                 <div class="form-group {{ $errors->has('dias') ? 'has-error':'' }}">
                                     <label for="dias">Cantidad de Dias</label>
                                     <input required type="text"
