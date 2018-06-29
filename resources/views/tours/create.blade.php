@@ -77,7 +77,7 @@
                                            name="precio_base"
                                            placeholder="Ingrese el Precio Base"
                                            value="{{ old('precio_base') }}">
-                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                           {!! $errors->first('precio_base', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -89,7 +89,7 @@
                                            name="dias"
                                            placeholder="Ingrese la Cantidad de Dias"
                                            value="{{ old('dias') }}">
-                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                           {!! $errors->first('dias', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
 
