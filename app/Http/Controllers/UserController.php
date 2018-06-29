@@ -21,16 +21,35 @@ class UserController extends Controller
         return view('usuarios.create', compact('roles'));
     }
 
-    public function edit(){
+    public function edit($id){
         $roles = Rol::all();
-        return view('usuarios.edit', compact('roles'));
+        $user = Usuario::get('usuarios/' .  $id);
+        return view('usuarios.edit', compact('roles'), compact('user'));
+    }
+
+    public function update(Request $request, $id){
+
+        $response = Usuario::post('usuarios/' . $id, $request->all());
+
+        if($response->status == 'error'){
+            return redirect()->back()->withErrors($response->errors)->withInput();
+        }else{
+            session()->flash('success', 'Usuario editado correctamente.');
+            return redirect()->route('usuarios.index');
+        }
+
     }
 
     public function store(Request $request){
+        $response = Usuario::post('usuarios', $request->all());
 
-        return $request->all();
+        if($response->status == 'error'){
+            return redirect()->back()->withErrors($response->errors)->withInput();
+        }else{
+            session()->flash('success', 'Usuario registrado correctamente.');
+            return redirect()->route('usuarios.index');
+        }
 
-        return Usuario::post('usuarios', $request->all());
     }
 
 }

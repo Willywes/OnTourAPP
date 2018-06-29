@@ -12,7 +12,7 @@ class ClientRest
 
         $client = new Client([
 
-            'base_uri' => 'http://api.ontour.tucreativa.cl'
+            'base_uri' => 'http://api.ontour.tucreativa.cl/api/'
 
         ]);
 
@@ -24,7 +24,7 @@ class ClientRest
 
         $client = new Client([
 
-            'base_uri' => 'http://api.ontour.tucreativa.cl'
+            'base_uri' => 'http://api.ontour.tucreativa.cl/api/'
 
         ]);
 
