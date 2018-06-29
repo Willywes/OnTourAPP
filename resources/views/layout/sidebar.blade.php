@@ -42,7 +42,7 @@
         </li>
 
         <li>
-            <a href="{{ route('usuarios.index') }}">
+            <a href="{{ route('tours.index') }}">
                 <i class="fa fa-circle-o-notch"></i> <span>Tours</span>
             </a>
         </li>
