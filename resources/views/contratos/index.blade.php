@@ -62,9 +62,9 @@
                                 <tr>
                                     <td>{{ $contrato->id }}</td>
                                     <td>{{ $contrato->fecha }}</td>
-                                    <td>{{ $contrato->colegio }}</td>
+                                    <td>{{ $contrato->nombre_colegio }}</td>
                                     <td>{{ $contrato->curso->nombre }}</td>
-                                    <td>{{ $contrato->user->nombre }}</td>
+                                    <td>{{ $contrato->representante->nombres }}</td>
                                     <td>{{ $contrato->tour->nombre }}</td>
                                     <td>{{ $contrato->total }}</td>
                                     <td style="white-space: nowrap;">
