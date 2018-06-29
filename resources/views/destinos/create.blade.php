@@ -1,4 +1,4 @@
-.@extends('template.base')
+@extends('template.base')
 
 @section('content-title', 'Gestión de Destinos - Destinos')
 
@@ -38,11 +38,30 @@
 
                         <div class="row">
                             <div class="col-md-6">
-                                <label for="nombre">Nombre</label>
-                                  <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el Nombre">
+                                <div class="form-group {{ $errors->has('nombre') ? 'has-error':'' }}">
+                                    <label for="nombre">Nombre</label>
+                                    <input required type="nombre"
+                                           class="form-control"
+                                           id="nombre"
+                                           name="nombre"
+                                           placeholder="Ingrese el Nombre de Destino"
+                                           value="{{ old('nombre') }}">
+                                    {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                </div>
                             </div>
                         </div>
-                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group {{ $errors->has('descripcion') ? 'has-error':'' }}">
+                                    <label for="descripcion">Descripción</label>
+                                    <textarea class="form-control"
+                                           id="descripcion"
+                                           name="descripcion"
+                                           placeholder="Ingrese el Descripción"> 
+                                           {{old('descripcion') }}</textarea>
+                                </div>
+                            </div>
+                        </div>
                 <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary" style="float: right;"> Guardar Destino</button>

@@ -25,3 +25,7 @@ Route::resource('usuarios', 'UserController');
 
 Route::resource('contratos', 'ContratoController');
 
+Route::resource('destinos', 'DestinoController');
+
+Route::resource('tours', 'TourController');
+

@@ -48,6 +48,7 @@
                                 {{--<th data-field="status" data-checkbox="true"></th>--}}
                                 <th data-cell-style="cellStyle" data-sortable="true">Id</th>
                                 <th data-sortable="true">Nombres</th>
+                                <th data-sortable="true">Descripción</th>
                                 <th data-cell-style="cellStyle" > </th>
                             </tr>
                         </thead>
@@ -57,6 +58,7 @@
                                 <tr>
                                     <td>{{ $curso->id }}</td>
                                     <td>{{ $curso->nombre }}</td>
+                                    <td>{{ $curso->descripcion }}</td>
                                     <td style="white-space: nowrap;">
                                         <a href="{{ route('cursos.show',['curso' => $curso->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
                                             <i class="fa fa-eye"></i>

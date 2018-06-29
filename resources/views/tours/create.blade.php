@@ -1,11 +1,11 @@
-.@extends('template.base')
+@extends('template.base')
 
-@section('content-title', 'Gestión de Tour - Tour')
+@section('content-title', 'Gestión de Tours - Tours')
 
-@section('content-subtitle', 'Crear Tour')
+@section('content-subtitle', 'Crear Tours')
 
 @section('breadcrumb')
-    <li>Gestión de Tour</li>
+    <li>Gestión de Tours</li>
     <li class="active">Crear Tour</li>
 @endsection
 
@@ -37,43 +37,63 @@
                         {{ csrf_field() }}
 
                         <div class="row">
-                            <div class="col-md-6">
-                                <label for="nombre">Nombre</label>
-                                  <input required type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese el Nombre">
-                            </div>
-                        </div>
 
-                        <div class="row">
-                             <div class="col-md-6">
-                                <div class="form-group" id="group_error_destino">
+                            <div class="col-md-6">
+                                <div class="form-group {{ $errors->has('nombre') ? 'has-error':'' }}">
+                                    <label for="nombre">Nombre</label>
+                                    <input required type="nombre"
+                                           class="form-control"
+                                           id="nombre"
+                                           name="nombre"
+                                           placeholder="Ingrese el Nombre"
+                                           value="{{ old('nombre') }}">
+                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group {{ $errors->has('destino_id') ? 'has-error':'' }}">
                                     <label class="control-label" for="destino_id">Destino</label>
                                     <select class="form-control"
                                             name="destino_id"
-                                            id="destino_id"
+                                            id="destino"
                                             required>
-                                        <option value="">Seleccione Destino </option>
+                                        <option value="">Seleccione destino</option>
                                         @foreach($destinos as $destino)
-                                            <option value="{{ $destino->id }}">{{ strtoupper($destino->nombre) }}</option>
+                                            <option value="{{ $destino->id }}" {{ $destino->id == old('destino_id')  ? 'selected' : ''  }}>{{ strtoupper($destino->nombre) }}</option>
                                         @endforeach
                                     </select>
-                                    <span id="error_destino" class="help-block"></span>
+                                    {!! $errors->first('destino_id', '<span class="help-block">:message</span>') !!}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group {{ $errors->has('precio_base') ? 'has-error':'' }}">
+                                    <label for="precio_base">Precio Base</label>
+                                    <input required type="precio_base"
+                                           class="form-control"
+                                           id="precio_base"
+                                           name="precio_base"
+                                           placeholder="Ingrese el Precio Base"
+                                           value="{{ old('precio_base') }}">
+                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <label for="dias">Cantidad de dias</label>
-                                  <input required type="text" class="form-control" id="dias" name="dias" placeholder="Ingrese la Cantidad de Dias">
+                                <div class="form-group {{ $errors->has('dias') ? 'has-error':'' }}">
+                                    <label for="dias">Cantidad de Dias</label>
+                                    <input required type="dias"
+                                           class="form-control"
+                                           id="dias"
+                                           name="dias"
+                                           placeholder="Ingrese la Cantidad de Dias"
+                                           value="{{ old('dias') }}">
+                                           {!! $errors->first('nombre', '<span class="help-block">:message</span>') !!}
+                                </div>
                             </div>
+
                         </div>
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="precio_base">Precio Base</label>
-                                  <input required type="text" class="form-control" id="precio_base" name="precio_base" placeholder="Ingrese el Precio Base">
-                            </div>
-                        </div>
-
-
-                        
                 <div class="row">
                     <div class="col-md-12">
                         <button type="submit" class="btn btn-primary" style="float: right;"> Guardar Tour</button>
