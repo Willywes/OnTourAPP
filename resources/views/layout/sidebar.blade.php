@@ -30,7 +30,7 @@
         </li>
 
         <li>
-            <a href="{{ route('usuarios.index') }}">
+            <a href="{{ route('servicios-adicionales.index') }}">
                 <i class="fa fa-plus-square"></i> <span>Servicios Adicionales</span>
             </a>
         </li>

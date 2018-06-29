@@ -29,5 +29,5 @@ Route::resource('destinos', 'DestinoController');
 
 Route::resource('tours', 'TourController');
 
-Route::resource('servicios_adicionales', 'ServicioController');
+Route::resource('servicios-adicionales', 'ServicioController');
 
