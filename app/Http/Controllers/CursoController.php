@@ -46,4 +46,10 @@ class CursoController extends Controller
         }
 
     }
+
+    public function show($id)
+    {
+        $curso = Curso::get('cursos/' .  $id);
+        return view('cursos.show',  compact('curso'));
+    }
 }

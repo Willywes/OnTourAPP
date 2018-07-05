@@ -44,6 +44,11 @@ class DestinoController extends Controller
             session()->flash('success', 'Destino ingresado correctamente.');
             return redirect()->route('destinos.index');
         }
+    }
 
+    public function show($id)
+    {
+        $destino = Destino::get('destinos/' .  $id);
+        return view('destinos.show',  compact('destino'));
     }
 }

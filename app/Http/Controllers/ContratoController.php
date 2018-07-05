@@ -84,4 +84,15 @@ class ContratoController extends Controller
         }
     }
 
+    public function show($id)
+    {
+        $cursos = Curso::all();
+        $servicio = Servicio::all();
+        $user = Usuario::all();
+        $tour = Tour::all();
+        $rol = Rol::all();
+        $destinos = Destino::all();
+        $contrato = Contrato::get('contratos/' .  $id);
+        return view('contratos.show', compact('cursos'), compact('servicio'),compact('user'),compact('tour'),compact('rol'),compact('destinos'),compact('contrato'));
+    }
 }

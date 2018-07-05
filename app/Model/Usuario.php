@@ -10,4 +10,5 @@ class Usuario extends ClientRest
     public static function all(){
         return static::get('usuarios');
     }
+
 }

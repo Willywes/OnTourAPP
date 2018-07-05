@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\User;
 use App\Model\Rol;
 use App\Model\Usuario;
 use Illuminate\Http\Request;
@@ -49,7 +49,33 @@ class UserController extends Controller
             session()->flash('success', 'Usuario registrado correctamente.');
             return redirect()->route('usuarios.index');
         }
+    }
+
+    public function show($id)
+    {
+        $roles = Rol::all();
+        $user = Usuario::get('usuarios/' .  $id);
+        return view('usuarios.show', compact('roles'), compact('user'));
+    }
+
+    public function destroy($id)
+    {
+        try{
+            $user = User::find($id);
+
+            if($user){
+                $user->delete();
+                return ControllerUtils::successResponseJson(null, "Usuario eliminado correctamente.");
+            }else{
+                return ControllerUtils::errorResponseJson('El Usuario a eliminar no éxiste.');
+            }
+
+
+        }catch(\Exception $e){
+            return ControllerUtils::errorResponseJson('Error al eliminar al usuario.');
+        }
 
     }
+
 
 }

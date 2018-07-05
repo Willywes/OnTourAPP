@@ -48,4 +48,11 @@ class TourController extends Controller
         }
 
     }
+
+    public function show($id)
+    {
+        $destinos = Destino::all();
+        $tour = Tour::get('tours/' .  $id);
+        return view('tours.show', compact('destinos'), compact('tour'));
+    }
 }

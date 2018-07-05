@@ -44,6 +44,11 @@ class ServicioController extends Controller
             session()->flash('success', 'Servicio ingresado correctamente.');
             return redirect()->route('servicios-adicionales.index');
         }
+    }
 
+    public function show($id)
+    {
+        $servicio = Servicio::get('servicios-adicionales/' .  $id);
+        return view('servicios_adicionales.show',  compact('servicio'));
     }
 }
