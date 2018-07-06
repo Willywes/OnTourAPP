@@ -40,4 +40,19 @@ class ClientRest
 //        $response = $request->send();
         return  json_decode($response->getBody()->getContents());
     }
+
+    public static function delete($url){
+
+        $client = new Client([
+
+            'base_uri' => 'http://api.ontour.tucreativa.cl/api/'
+
+        ]);
+
+        $response = $client->request('POST',  $url , [
+            'form_params' => ['_method' => 'delete']
+        ]);
+
+        return  json_decode($response->getBody()->getContents());
+    }
 }

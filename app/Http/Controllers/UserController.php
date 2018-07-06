@@ -60,19 +60,23 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        try{
-            $user = User::find($id);
 
-            if($user){
-                $user->delete();
-                return ControllerUtils::successResponseJson(null, "Usuario eliminado correctamente.");
-            }else{
-                return ControllerUtils::errorResponseJson('El Usuario a eliminar no éxiste.');
+        $user = Usuario::get('usuarios/' .  $id);
+        if (!$user) {
+            return redirect()->back()->withErrors(['message' =>  'Error usuario no encontrado.']);
+        }else{
+            try{
+                $response = Usuario::delete('usuarios/' . $id);
+                if($response->status == 'error'){
+                    return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el usuario.']);
+                }else{
+                    session()->flash('success', 'Usuario eliminado correctamente.');
+                    return redirect()->route('usuarios.index');
+                }
+                
+            }catch(\Exception $ex){
+                return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el usuario.']);
             }
-
-
-        }catch(\Exception $e){
-            return ControllerUtils::errorResponseJson('Error al eliminar al usuario.');
         }
 
     }
