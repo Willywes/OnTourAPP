@@ -11,23 +11,35 @@
 |
 */
 
-Route::get('/', function (){
-    return view('template.base');
-})->name('dashboard');
 
 Route::prefix('roles')->group(function () {
     Route::get('/', 'RolController@index')->name('roles');
 });
 
+Route::get('/login', 'LoginController@showLogin')->name('login.show');
+Route::post('/login', 'LoginController@login')->name('login');
+
+Route::middleware('web')->group(function () {
+
+    Route::get('/', function (){
+        return view('template.base');
+    })->name('dashboard');
 
 
-Route::resource('usuarios', 'UserController');
 
-Route::resource('contratos', 'ContratoController');
 
-Route::resource('destinos', 'DestinoController');
+    Route::get('/logout', 'LoginController@logout')->name('logout');
+    Route::post('/logout', 'LoginController@logout')->name('logout');
 
-Route::resource('tours', 'TourController');
 
-Route::resource('servicios-adicionales', 'ServicioController');
+    Route::resource('usuarios', 'UserController');
 
+    Route::resource('contratos', 'ContratoController');
+
+    Route::resource('destinos', 'DestinoController');
+
+    Route::resource('tours', 'TourController');
+
+    Route::resource('servicios-adicionales', 'ServicioController');
+
+});
