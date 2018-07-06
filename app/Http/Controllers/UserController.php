@@ -78,7 +78,6 @@ class UserController extends Controller
                 return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el usuario.']);
             }
         }
-
     }
 
 

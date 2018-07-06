@@ -51,4 +51,26 @@ class ServicioController extends Controller
         $servicio = Servicio::get('servicios-adicionales/' .  $id);
         return view('servicios_adicionales.show',  compact('servicio'));
     }
+
+    public function destroy($id)
+    {
+
+        $servicio = Servicio::get('servicios-adicionales/' .  $id);
+        if (!$servicio) {
+            return redirect()->back()->withErrors(['message' =>  'Error servicio no encontrado.']);
+        }else{
+            try{
+                $response = Servicio::delete('servicios-adicionales/' . $id);
+                if($response->status == 'error'){
+                    return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el Servicio.']);
+                }else{
+                    session()->flash('success', 'Servicio eliminado correctamente.');
+                    return redirect()->route('servicios-adicionales.index');
+                }
+                
+            }catch(\Exception $ex){
+                return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el Servicio.']);
+            }
+        }
+    }
 }

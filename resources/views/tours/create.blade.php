@@ -81,6 +81,8 @@
                                            class="form-control"
                                            id="precio_base"
                                            name="precio_base"
+                                           onkeypress="return validarNum(event)"
+                                           onpaste="return false"
                                            placeholder="Ingrese el Precio Base"
                                            value="{{ old('precio_base') }}">
                                            {!! $errors->first('precio_base', '<span class="help-block">:message</span>') !!}
@@ -93,8 +95,10 @@
                                            class="form-control"
                                            id="dias"
                                            name="dias"
+                                           onkeypress="return validarNum(event)"
+                                           onpaste="return false"
                                            placeholder="Ingrese la Cantidad de Dias"
-                                           value="{{ old('dias') }}">
+                                           value="{{ old('dias') }}" >
                                            {!! $errors->first('dias', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
@@ -119,6 +123,28 @@
 @endsection
 
 @section('scripts')
+
+<script>
+  function validarNum(e){
+    key = e.keyCode || e.which;
+    teclado = String.fromCharCode(key);
+    numeros = "0123456789";
+    especiales = "8-37-38-46";
+    teclado_especial = false;
+
+    for (var i in especiales) {
+
+      if (key==especiales[i]) {
+        teclado_especial=true;
+      }
+
+    }
+
+    if (numeros.indexOf(teclado)==-1 && !teclado_especial) {
+      return false;
+    }
+  }
+</script>
 
 
 

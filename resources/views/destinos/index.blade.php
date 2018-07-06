@@ -61,16 +61,34 @@
                                     <td>{{ $destino->nombre }}</td>
                                     <td>{{ $destino->descripcion }}</td>
                                     <td>{{ $destino->created_at }}</td>
-                                    <td style="white-space: nowrap;">
-                                        <a href="{{ route('destinos.show',['destino' => $destino->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="{{ route('destinos.edit',['destino' => $destino->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="{{ route('destinos.destroy',['destino' => $destino->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
-                                            <i class="fa fa-remove"></i>
-                                        </a>
+                                    <td>
+                                        <div style="width: max-content; float: left;">
+                                            <div style="width: max-content; float: left;">
+                                                <a href="{{ route('destinos.show',['destino' => $destino->id] ) }}"
+                                                   class="btn btn-info btn-sm" title="Ver Más">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div style="width: max-content; float: left; margin-left: 5px">
+                                                <a href="{{ route('destinos.edit',['destino' => $destino->id] ) }}"
+                                                   class="btn btn-warning btn-sm" title="Editar">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </div>
+                                            <div style="width: max-content; float: left; margin-left: 5px">
+                                                <form class="delete-form"
+                                                      action="{{ route('destinos.destroy',['destino' => $destino->id] ) }}"
+                                                      method="post">
+                                                    <input type="hidden" name="_method" value="delete"/>
+                                                    {!! csrf_field() !!}
+                                                    <button type="button" onclick="confirmDelete(this)"
+                                                            class="btn btn-danger btn-sm" title="Eliminar"
+                                                            style="float: left;">
+                                                        <i class="fa fa-remove"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -108,6 +126,26 @@
                 }
 
             };
+        }
+    </script>
+    <script>
+        function confirmDelete(val) {
+            var form = $(val).parents('form:first');
+            swal({
+                title: '¿Estas Seguro?',
+                text: "Si eliminas este destino, la información será irrecuperable",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#43a047',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!'
+            }).then((result) => {
+                if(result.value)
+                {
+                    form.submit();
+                }
+            })
         }
     </script>
 @endsection

@@ -51,4 +51,26 @@ class DestinoController extends Controller
         $destino = Destino::get('destinos/' .  $id);
         return view('destinos.show',  compact('destino'));
     }
+
+    public function destroy($id)
+    {
+
+        $destino = Destino::get('destinos/' .  $id);
+        if (!$destino) {
+            return redirect()->back()->withErrors(['message' =>  'Error destino no encontrado.']);
+        }else{
+            try{
+                $response = Destino::delete('destinos/' . $id);
+                if($response->status == 'error'){
+                    return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el destino.']);
+                }else{
+                    session()->flash('success', 'Destino eliminado correctamente.');
+                    return redirect()->route('destinos.index');
+                }
+                
+            }catch(\Exception $ex){
+                return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el destino.']);
+            }
+        }
+    }
 }

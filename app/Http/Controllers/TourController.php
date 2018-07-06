@@ -55,4 +55,26 @@ class TourController extends Controller
         $tour = Tour::get('tours/' .  $id);
         return view('tours.show', compact('destinos'), compact('tour'));
     }
+
+    public function destroy($id)
+    {
+
+        $tour = Tour::get('tours/' .  $id);
+        if (!$tour) {
+            return redirect()->back()->withErrors(['message' =>  'Error tour no encontrado.']);
+        }else{
+            try{
+                $response = Tour::delete('tours/' . $id);
+                if($response->status == 'error'){
+                    return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el tour.']);
+                }else{
+                    session()->flash('success', 'Tour eliminado correctamente.');
+                    return redirect()->route('tours.index');
+                }
+                
+            }catch(\Exception $ex){
+                return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el tour.']);
+            }
+        }
+    }
 }

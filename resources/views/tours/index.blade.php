@@ -63,16 +63,34 @@
                                     <td>{{ $tour->dias }}</td>
                                     <td>{{ $tour->destino->nombre }}</td>
                                     <td>{{ $tour->precio_base }}</td>
-                                    <td style="white-space: nowrap;">
-                                        <a href="{{ route('tours.show',['tour' => $tour->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="{{ route('tours.edit',['tour' => $tour->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="{{ route('tours.destroy',['tour' => $tour->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
-                                            <i class="fa fa-remove"></i>
-                                        </a>
+                                    <td>
+                                        <div style="width: max-content; float: left;">
+                                            <div style="width: max-content; float: left;">
+                                                <a href="{{ route('tours.show',['tour' => $tour->id] ) }}"
+                                                   class="btn btn-info btn-sm" title="Ver Más">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div style="width: max-content; float: left; margin-left: 5px">
+                                                <a href="{{ route('tours.edit',['tour' => $tour->id] ) }}"
+                                                   class="btn btn-warning btn-sm" title="Editar">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </div>
+                                            <div style="width: max-content; float: left; margin-left: 5px">
+                                                <form class="delete-form"
+                                                      action="{{ route('tours.destroy',['tour' => $tour->id] ) }}"
+                                                      method="post">
+                                                    <input type="hidden" name="_method" value="delete"/>
+                                                    {!! csrf_field() !!}
+                                                    <button type="button" onclick="confirmDelete(this)"
+                                                            class="btn btn-danger btn-sm" title="Eliminar"
+                                                            style="float: left;">
+                                                        <i class="fa fa-remove"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -110,6 +128,26 @@
                 }
 
             };
+        }
+    </script>
+    <script>
+        function confirmDelete(val) {
+            var form = $(val).parents('form:first');
+            swal({
+                title: '¿Estas Seguro?',
+                text: "Si eliminas este tour, la información será irrecuperable",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#43a047',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!'
+            }).then((result) => {
+                if(result.value)
+                {
+                    form.submit();
+                }
+            })
         }
     </script>
 @endsection

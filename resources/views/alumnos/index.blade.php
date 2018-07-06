@@ -69,16 +69,34 @@
                                     <td>{{ $alumno->fecha_nacimiento }}</td>
                                     <td>{{ $alumno->curso->nombre }}</td>
                                     <td>{{ $alumno->user->nombre }}</td>
-                                    <td style="white-space: nowrap;">
-                                        <a href="{{ route('alumnos.show',['usuario' => $alumno->id] ) }}" class="btn btn-info btn-sm" title="Ver Más">
-                                            <i class="fa fa-eye"></i>
-                                        </a>
-                                        <a href="{{ route('alumnos.edit',['usuario' => $alumno->id] ) }}" class="btn btn-warning btn-sm" title="Editar">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                        <a href="{{ route('alumnos.destroy',['usuario' => $alumno->id] ) }}" class="btn btn-danger btn-sm" title="Eliminar">
-                                            <i class="fa fa-remove"></i>
-                                        </a>
+                                    <td>
+                                        <div style="width: max-content; float: left;">
+                                            <div style="width: max-content; float: left;">
+                                                <a href="{{ route('alumnos.show',['alumno' => $alumno->id] ) }}"
+                                                   class="btn btn-info btn-sm" title="Ver Más">
+                                                    <i class="fa fa-eye"></i>
+                                                </a>
+                                            </div>
+                                            <div style="width: max-content; float: left; margin-left: 5px">
+                                                <a href="{{ route('alumnos.edit',['alumno' => $alumno->id] ) }}"
+                                                   class="btn btn-warning btn-sm" title="Editar">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </div>
+                                            <div style="width: max-content; float: left; margin-left: 5px">
+                                                <form class="delete-form"
+                                                      action="{{ route('alumnos.destroy',['alumno' => $alumno->id] ) }}"
+                                                      method="post">
+                                                    <input type="hidden" name="_method" value="delete"/>
+                                                    {!! csrf_field() !!}
+                                                    <button type="button" onclick="confirmDelete(this)"
+                                                            class="btn btn-danger btn-sm" title="Eliminar"
+                                                            style="float: left;">
+                                                        <i class="fa fa-remove"></i>
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach
@@ -116,6 +134,26 @@
                 }
 
             };
+        }
+    </script>
+    <script>
+        function confirmDelete(val) {
+            var form = $(val).parents('form:first');
+            swal({
+                title: '¿Estas Seguro?',
+                text: "Si eliminas este alumno, la información será irrecuperable",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#43a047',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, eliminar!',
+                cancelButtonText: 'No, cancelar!'
+            }).then((result) => {
+                if(result.value)
+                {
+                    form.submit();
+                }
+            })
         }
     </script>
 @endsection

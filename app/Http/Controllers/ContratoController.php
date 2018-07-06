@@ -95,4 +95,26 @@ class ContratoController extends Controller
         $contrato = Contrato::get('contratos/' .  $id);
         return view('contratos.show', compact('cursos'), compact('servicio'),compact('user'),compact('tour'),compact('rol'),compact('destinos'),compact('contrato'));
     }
+
+    public function destroy($id)
+    {
+
+        $contrato = Contrato::get('contratos/' .  $id);
+        if (!$contrato) {
+            return redirect()->back()->withErrors(['message' =>  'Error contrato no encontrado.']);
+        }else{
+            try{
+                $response = Contrato::delete('contratos/' . $id);
+                if($response->status == 'error'){
+                    return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el contrato.']);
+                }else{
+                    session()->flash('success', 'Contrato eliminado correctamente.');
+                    return redirect()->route('contratos.index');
+                }
+                
+            }catch(\Exception $ex){
+                return redirect()->back()->withErrors(['message' =>  'Error al intentar eliminar el contrato.']);
+            }
+        }
+    }
 }
