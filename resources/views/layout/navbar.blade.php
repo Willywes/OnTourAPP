@@ -14,7 +14,7 @@
             <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                     <img src="/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                    <span class="hidden-xs">Nombre Usuario</span>
+                    <span class="hidden-xs">{{ Auth::user()->nombres }}</span>
                 </a>
                 <ul class="dropdown-menu">
                     <!-- User image -->
@@ -22,18 +22,18 @@
                         <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
                         <p>
-                            Nombre Usuario - Rol
+                            {{ Auth::user()->nombres }}
 
                         </p>
                     </li>
                     <!-- Menu Body -->
 
                     <li class="user-footer">
-                        <div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                        </div>
+                        {{--<div class="pull-left">--}}
+                            {{--<a href="#" class="btn btn-default btn-flat">Perfil</a>--}}
+                        {{--</div>--}}
                         <div class="pull-right">
-                            <a href="#" class="btn btn-danger btn-flat">Cerrar Sesión</a>
+                            <a href="{{ route('logout') }}" class="btn btn-danger btn-flat">Cerrar Sesión</a>
                         </div>
                     </li>
                 </ul>

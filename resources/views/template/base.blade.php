@@ -52,7 +52,6 @@
     </div>
     <div class="wrapper">
 
-
         @include('layout.header')
 
     <!-- =============================================== -->

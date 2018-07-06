@@ -5,7 +5,7 @@
             <img src="/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-            <p>Nombre Usuario</p>
+            <p>{{ Auth::user()->nombres }}</p>
             <a href="#"><i class="fa fa-circle text-success"></i> Conectado</a>
         </div>
     </div>
@@ -56,6 +56,13 @@
         <li>
             <a href="{{ route('contratos.index') }}">
                 <i class="fa fa-bank"></i> <span>Abonos</span>
+            </a>
+        </li>
+
+        <li class="header"></li>
+        <li>
+            <a href="{{ route('logout') }}">
+                <i class="fa fa-sign-out"></i> <span>Salir</span>
             </a>
         </li>
 

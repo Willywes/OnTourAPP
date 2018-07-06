@@ -19,7 +19,7 @@ Route::prefix('roles')->group(function () {
 Route::get('/login', 'LoginController@showLogin')->name('login.show');
 Route::post('/login', 'LoginController@login')->name('login');
 
-Route::middleware('web')->group(function () {
+Route::middleware('auth')->group(function () {
 
     Route::get('/', function (){
         return view('template.base');

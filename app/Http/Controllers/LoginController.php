@@ -34,17 +34,16 @@ class LoginController extends Controller
 
         }else {
 
-            $user = new User();
+          /*  $user = new User();
             $user->email = $response->entity->email;
             $user->nombres = $response->entity->nombres;
             $user->paterno = $response->entity->paterno;
             $user->materno = $response->entity->materno;
-            $user->rol_id = $response->entity->rol_id;
+            $user->rol_id = $response->entity->rol_id;*/
 
 
-            Auth::attempt(['email' => $user->email, 'password' => bcrypt($request->password)]);
-            Auth::login($user);
-            return Auth::user();
+            Auth::loginUsingId($response->entity->id);
+            //return Auth::user();
             return redirect()->route('dashboard');
 
         }
