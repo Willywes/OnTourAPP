@@ -24,6 +24,11 @@
     <ul class="sidebar-menu" data-widget="tree">
         <li class="header">ADMINISTRACIÓN</li>
         <li>
+            <a href="{{ route('dashboard') }}">
+                <i class="fa fa-th"></i> <span>Panel</span>
+            </a>
+        </li>
+        <li>
             <a href="{{ route('usuarios.index') }}">
                 <i class="fa fa-users"></i> <span>Gestión de Usuarios</span>
             </a>

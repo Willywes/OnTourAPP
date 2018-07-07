@@ -21,9 +21,7 @@ Route::post('/login', 'LoginController@login')->name('login');
 
 Route::middleware('auth')->group(function () {
 
-    Route::get('/', function (){
-        return view('template.base');
-    })->name('dashboard');
+    Route::get('/', 'DashboardController@index')->name('dashboard');
 
 
 

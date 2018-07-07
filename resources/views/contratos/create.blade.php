@@ -64,9 +64,7 @@
                             </div>
 
                             <div class="col-md-3" >
-                                <div style="background: #3085ff; padding: 15px; color: white; text-align: center;">
 
-                                </div>
                             </div>
 
                         </div>

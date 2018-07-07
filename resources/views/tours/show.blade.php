@@ -21,7 +21,7 @@
             @include('template._errors')
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -44,7 +44,7 @@
 
                         <div class="row">
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="control-label" for="nombre">Nombre: </label>
                                     {{$tour->nombre}}
@@ -53,7 +53,7 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="dias">Cantidad de dias: </label>
                                     {{$tour->dias}}
@@ -62,22 +62,24 @@
 
                         </div>
                         <div class="row">
-                            <div class="col-md-4">
+                            <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="nombres">Destino: </label>
                                     {{$tour->destino_id}}
                                 </div>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-12">
                                 <div class="form-group ">
                                     <label for="paterno">Precio Base: </label>
-                                    {{$tour->precio_base}}
+                                    $ {{number_format($tour->precio_base, 0 ,',','.')}}
                                 </div>
                             </div>
                         </div>
 
 
                     </form>
+
+                    <a href="{{ route('tours.index') }}" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-arrow-left"></i> Atrás</a>
                 </div>
             </div>
         </div>

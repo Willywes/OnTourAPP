@@ -21,7 +21,7 @@
             @include('template._errors')
         </div>
 
-        <div class="col-md-10">
+        <div class="col-md-6">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -61,15 +61,9 @@
                             </div>
 
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="created_at">Creado: </label>
-                                    {{$destino->created_at}}
-                                </div>
-                            </div>
-
                     </form>
+
+                    <a href="{{ route('destinos.index') }}" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-arrow-left"></i> Atrás</a>
                 </div>
             </div>
         </div>

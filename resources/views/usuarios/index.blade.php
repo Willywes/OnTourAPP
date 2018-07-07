@@ -47,9 +47,9 @@
                             <tr>
                                 {{--<th data-field="status" data-checkbox="true"></th>--}}
                                 <th data-cell-style="cellStyle" data-sortable="true">Id</th>
-                                <th data-sortable="true">Nombres</th>
-                                <th data-sortable="true">A. Paterno</th>
-                                <th data-sortable="true">A. Materno</th>
+                                <th data-cell-style="cellStyle" data-sortable="true">Nombres</th>
+                                <th data-cell-style="cellStyle" data-sortable="true">A. Paterno</th>
+                                <th data-cell-style="cellStyle" data-sortable="true">A. Materno</th>
                                 <th data-sortable="true">Email</th>
                                 <th data-sortable="true">Rol</th>
                                 <th data-cell-style="cellStyle" > </th>

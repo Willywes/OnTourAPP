@@ -62,7 +62,7 @@
                                     <td>{{ $tour->nombre }}</td>
                                     <td>{{ $tour->dias }}</td>
                                     <td>{{ $tour->destino->nombre }}</td>
-                                    <td>{{ $tour->precio_base }}</td>
+                                    <td>$ {{number_format($tour->precio_base, 0 ,',','.')}}</td>
                                     <td>
                                         <div style="width: max-content; float: left;">
                                             <div style="width: max-content; float: left;">

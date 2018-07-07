@@ -67,7 +67,8 @@
                                            value="{{ old('precio') }}">
                                            {!! $errors->first('precio', '<span class="help-block">:message</span>') !!}
                                 </div>
-                                <div class="col-md-6">
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group {{ $errors->has('tipo') ? 'has-error':'' }}">
                                     <label for="tipo">Tipo</label>
                                     <input required type="tipo"
@@ -88,6 +89,7 @@
                 </div>
 
                     </form>
+
                 </div>
             </div>
         </div>

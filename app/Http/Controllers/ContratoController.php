@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\Contrato;
 use App\Model\Curso;
+use App\Model\Destino;
 use App\Model\Rol;
 use App\Model\Servicio;
 use App\Model\Tour;
@@ -25,7 +26,7 @@ class ContratoController extends Controller
         return view('contratos.create', compact('tours'), compact('servicios'));
     }
 
-    public function edit(){
+    public function edit($id){
         $roles = Rol::all();
         return view('contratos.edit', compact('roles'));
     }
@@ -86,14 +87,17 @@ class ContratoController extends Controller
 
     public function show($id)
     {
-        $cursos = Curso::all();
-        $servicio = Servicio::all();
-        $user = Usuario::all();
-        $tour = Tour::all();
-        $rol = Rol::all();
-        $destinos = Destino::all();
+
         $contrato = Contrato::get('contratos/' .  $id);
-        return view('contratos.show', compact('cursos'), compact('servicio'),compact('user'),compact('tour'),compact('rol'),compact('destinos'),compact('contrato'));
+        $user = Usuario::get('usuarios/'. $contrato->representante_id);
+        $tour = Tour::get('tours/' . $contrato->tour_id);
+        $curso = Tour::get('cursos/' . $contrato->curso_id);
+
+        return view('contratos.show')->
+            with(['contrato'=> $contrato,
+            'user'=> $user,
+            'tour'=> $tour,
+            'curso'=> $curso ]);
     }
 
     public function destroy($id)

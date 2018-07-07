@@ -21,7 +21,7 @@
             @include('template._errors')
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -62,12 +62,14 @@
                             <div class="col-md-3">
                                 <div class="form-group ">
                                     <label for="precio">Precio: </label>
-                                    {{$servicio->precio}}
+                                    $ {{number_format($servicio->precio, 0 ,',','.')}}
                                 </div>
                             </div>
                         </div>
 
                     </form>
+
+                    <a href="{{ route('servicios-adicionales.index') }}" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-arrow-left"></i> Atrás</a>
                 </div>
             </div>
         </div>

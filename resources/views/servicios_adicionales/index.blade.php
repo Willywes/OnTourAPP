@@ -60,7 +60,7 @@
                                     <td>{{ $servicio_adicional->id }}</td>
                                     <td>{{ $servicio_adicional->nombre }}</td>
                                     <td>{{ $servicio_adicional->tipo }}</td>
-                                    <td>{{ $servicio_adicional->precio }}</td>
+                                    <td>$ {{number_format($servicio_adicional->precio, 0 ,',','.')}}</td>
                                     <td>
                                         <div style="width: max-content; float: left;">
                                             <div style="width: max-content; float: left;">

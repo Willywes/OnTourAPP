@@ -21,7 +21,7 @@
             @include('template._errors')
         </div>
 
-        <div class="col-md-12">
+        <div class="col-md-6">
 
             <div class="box box-primary">
                 <div class="box-header with-border">
@@ -66,41 +66,33 @@
                                 <div class="form-group">
                                     <label for="nombres">Nombres: </label>
                                     {{$user->nombres}}
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group ">
-                                    <label for="paterno">Apellido Paterno: </label>
-                                    {{$user->nombres}}
-                                </div>
-                            </div>
 
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="materno">Apellido Materno: </label>
-                                    {{$user->nombres}}
+                                    {{$user->paterno}}
+
+                                    {{$user->materno}}
                                 </div>
                             </div>
 
                         </div>
 
                         <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="telefono">Telefono: </label>
-                                    {{$user->nombres}}
+                                    {{$user->telefono}}
                                 </div>
                             </div>
 
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label for="celular">Celular: </label>
-                                    {{$user->nombres}}
+                                    {{$user->celular}}
                                 </div>
                             </div>
                         </div>
 
                     </form>
+                    <a href="{{ route('usuarios.index') }}" class="btn btn-primary btn-sm" style="float: right;"><i class="fa fa-arrow-left"></i> Atrás</a>
                 </div>
             </div>
         </div>

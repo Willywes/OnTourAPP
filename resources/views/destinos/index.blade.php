@@ -49,7 +49,6 @@
                                 <th data-cell-style="cellStyle" data-sortable="true">Id</th>
                                 <th data-sortable="true">Nombres</th>
                                 <th data-sortable="true">Descripcion</th>
-                                <th data-sortable="true">Creado</th>
                                 <th data-cell-style="cellStyle" > </th>
                             </tr>
                         </thead>
@@ -60,7 +59,7 @@
                                     <td>{{ $destino->id }}</td>
                                     <td>{{ $destino->nombre }}</td>
                                     <td>{{ $destino->descripcion }}</td>
-                                    <td>{{ $destino->created_at }}</td>
+
                                     <td>
                                         <div style="width: max-content; float: left;">
                                             <div style="width: max-content; float: left;">

@@ -36,71 +36,85 @@
                 </div>
                 <div class="box-body">
 
-                    <form action="{{ route('contratos.show', ['contrato' => $contrato->id]) }}" method="POST">
-
-                        {{ csrf_field() }}
-                        <input type="hidden" name="id" value="{{$user->id}}">
-                        <input type="hidden" name="_method" value="PUT">
-
-                        <div class="row">
-
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label" for="rol_id">Rol: </label>
-                                    {{$user->rol_id}}
-                                </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h3>INFOMACIÓN GENERAL</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Fecha: </label>
+                                {{$contrato->fecha}}
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="email">Email: </label>
-                                    {{$user->email}}
-                                </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Total: </label>
+                                $ {{number_format($contrato->total,0,',','.') }}
                             </div>
-
                         </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="nombres">Nombres: </label>
-                                    {{$user->nombres}}
-                                </div>
-                            </div>
-                            <div class="col-md-3">
-                                <div class="form-group ">
-                                    <label for="paterno">Apellido Paterno: </label>
-                                    {{$user->nombres}}
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="materno">Apellido Materno: </label>
-                                    {{$user->nombres}}
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="telefono">Telefono: </label>
-                                    {{$user->nombres}}
-                                </div>
-                            </div>
-
-                            <div class="col-md-3">
-                                <div class="form-group">
-                                    <label for="celular">Celular: </label>
-                                    {{$user->nombres}}
-                                </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Tour: </label>
+                                {{ $tour->nombre }}
                             </div>
                         </div>
 
-                    </form>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Nombre Colegio: </label>
+                                {{$contrato->nombre_colegio}}
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h3>INFOMACIÓN REPRESENTANTE</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Nombre: </label>
+                                {{$user->nombres}}
+                                {{$user->paterno}}
+                                {{$user->materno}}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Email: </label>
+                                {{$user->email}}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Teléfono: </label>
+                                {{$user->telefono ? $user->telefono : 'Sin Télefono'}}
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Celular: </label>
+                                {{ $user->celular ? $user->celular : 'Sin Celular' }}
+                            </div>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <h3>INFOMACIÓN CURSO</h3>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">Nombre: </label>
+                                {{$curso->nombre}}
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
         </div>

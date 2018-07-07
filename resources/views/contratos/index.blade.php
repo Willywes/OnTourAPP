@@ -75,25 +75,7 @@
                                                     <i class="fa fa-eye"></i>
                                                 </a>
                                             </div>
-                                            <div style="width: max-content; float: left; margin-left: 5px">
-                                                <a href="{{ route('contratos.edit',['contrato' => $contrato->id] ) }}"
-                                                   class="btn btn-warning btn-sm" title="Editar">
-                                                    <i class="fa fa-edit"></i>
-                                                </a>
-                                            </div>
-                                            <div style="width: max-content; float: left; margin-left: 5px">
-                                                <form class="delete-form"
-                                                      action="{{ route('contratos.destroy',['contrato' => $contrato->id] ) }}"
-                                                      method="post">
-                                                    <input type="hidden" name="_method" value="delete"/>
-                                                    {!! csrf_field() !!}
-                                                    <button type="button" onclick="confirmDelete(this)"
-                                                            class="btn btn-danger btn-sm" title="Eliminar"
-                                                            style="float: left;">
-                                                        <i class="fa fa-remove"></i>
-                                                    </button>
-                                                </form>
-                                            </div>
+
                                         </div>
                                     </td>
                                 </tr>
