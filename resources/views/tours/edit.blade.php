@@ -97,7 +97,7 @@
                                            id="dias"
                                            name="dias"
                                            placeholder="Ingrese el Cantidad de Dias"
-                                           value="{{ $user->dias or old('dias') }}">
+                                           value="{{ $tour->dias or old('dias') }}">
                                     {!! $errors->first('dias', '<span class="help-block">:message</span>') !!}
                                 </div>
                             </div>
