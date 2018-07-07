@@ -63,9 +63,8 @@
                                     <label for="descripcion">Descripción</label>
                                     <textarea class="form-control"
                                            id="descripcion"
-                                           name="descripcion"
-                                           placeholder="Ingrese el Descripción"> 
-                                           {{ $destino->descripcion or old('descripcion') }}</textarea>
+                                           name="descripcion" rows="10"
+                                           placeholder="Ingrese el Descripción">{{ $destino->descripcion or old('descripcion') }}</textarea>
                                 </div>
                             </div>
                         </div>

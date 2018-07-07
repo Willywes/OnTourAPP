@@ -47,7 +47,7 @@
                             <tr>
                                 {{--<th data-field="status" data-checkbox="true"></th>--}}
                                 <th data-cell-style="cellStyle" data-sortable="true">Id</th>
-                                <th data-sortable="true">Nombres</th>
+                                <th data-cell-style="cellStyle" data-sortable="true">Nombres</th>
                                 <th data-sortable="true">Descripcion</th>
                                 <th data-cell-style="cellStyle" > </th>
                             </tr>
