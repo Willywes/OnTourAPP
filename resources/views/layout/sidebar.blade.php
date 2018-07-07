@@ -58,11 +58,11 @@
                 <i class="fa fa-book"></i> <span>Contratos</span>
             </a>
         </li>
-        <li>
+        <!--<li>
             <a href="{{ route('contratos.index') }}">
                 <i class="fa fa-bank"></i> <span>Abonos</span>
             </a>
-        </li>
+        </li>-->
 
         <li class="header"></li>
         <li>
